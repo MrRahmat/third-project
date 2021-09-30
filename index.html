@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="is-loading">
+
+<head>
+    <title>Third command</title>
+    <link rel="canonical" href="en.html" />
+
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="mask-icon" href="assets/mask-icon.svg" color="#1D1D1B" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <style id="iti-theme-critical-inline-css">
+        .c-intro {
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 9;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .has-intro .c-intro {
+            visibility: visible;
+        }
+
+        .is-animated .c-intro {
+            visibility: hidden;
+            transition: visibility 0s 0.9s;
+        }
+
+        .c-intro svg {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: auto !important;
+            transform: translateX(-50%) !important;
+        }
+
+        .c-intro_text {
+            position: relative;
+            font-size: 2rem;
+            z-index: 999;
+            text-align: center;
+            font-weight: 400;
+            transition: opacity 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .has-intro .c-intro_text {
+            opacity: 0;
+            transition-delay: 3s;
+        }
+
+        .c-intro_text span {
+            font-weight: 500;
+        }
+
+        .c-intro_line {
+            opacity: 0;
+            transform: translateY(100%);
+            transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+                opacity 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .has-intro .c-intro_line {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .c-intro_line:first-child {
+            transition-delay: 0.8s;
+        }
+
+        .c-intro_line:last-child {
+            transition-delay: 0.9s;
+        }
+
+        .c-loader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #f6f9fb;
+            z-index: 10;
+            transition: transform 2.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+                visibility 0s 2.4s;
+            transform: translateZ(0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .has-intro .c-loader {
+            display: none;
+        }
+
+        .is-animated.is-ready .c-loader,
+        .is-transitioned .c-loader,
+        .is-transitioning .c-loader {
+            transform: translateY(-100%);
+            visibility: hidden;
+        }
+
+        .c-loader_logo {
+            position: relative;
+            height: 9.33333rem;
+            font-size: 0;
+            transition: transform 2.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        @media (max-width: 699px) {
+
+            .is-animated.is-ready .c-loader_logo,
+            .is-transitioned .c-loader_logo,
+            .is-transitioning .c-loader_logo {
+                transform: translateY(100%);
+            }
+        }
+
+        @media (min-width: 700px) {
+
+            .is-animated.is-ready .c-loader_logo,
+            .is-transitioned .c-loader_logo,
+            .is-transitioning .c-loader_logo {
+                transform: translateY(200%);
+            }
+        }
+
+        .c-loader_logo_line {
+            display: inline-block;
+            height: 100%;
+            width: 2.46667rem;
+            background-color: #221e1e;
+            margin: 0 1.86667rem;
+            border-radius: 0.46667rem;
+            transition: transform 1.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .c-loader_logo_line:first-child {
+            transform: translateY(-100vh);
+        }
+
+        .c-loader_logo_line:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 2.33333rem;
+            width: 5rem;
+            margin-left: -2.46667rem;
+            transform: translateX(-100vw);
+        }
+
+        .c-loader_logo_line:nth-child(3) {
+            height: 4.66667rem;
+            transform: translateX(100vw);
+        }
+
+        .c-loader_logo_line:nth-child(4) {
+            transform: translateY(100vh);
+        }
+
+        .is-loaded .c-loader_logo_line:first-child,
+        .is-loaded .c-loader_logo_line:nth-child(4) {
+            transform: translateY(0);
+        }
+
+        .is-loaded .c-loader_logo_line:nth-child(2),
+        .is-loaded .c-loader_logo_line:nth-child(3) {
+            transform: translateX(0);
+        }
+
+        html.is-loading {
+            cursor: wait;
+        }
+
+        .page {
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .is-animated .page {
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" id="iti-theme-app-css" href="styles/app.css%3Fver=202107141640.css"
+        media="print" onload="this.media='all'; this.onload=null; this.isLoaded=true" />
+</head>
+
+<body class="" data-module-load data-module-gtm>
+    <div class="c-loader">
+        <div class="c-loader_logo">
+            <div class="c-loader_logo_line"></div>
+            <div class="c-loader_logo_line"></div>
+            <div class="c-loader_logo_line"></div>
+            <div class="c-loader_logo_line"></div>
+        </div>
+    </div>
+
+    <div class="c-transition" data-module-transition></div>
+
+    <div class="page" data-load-container>
+        <a class="u-screen-reader-text -focusable" href="index.html#main" data-scroll-to>Skip to content</a>
+        <header class="c-header" data-module-header>
+            <a class="c-header_logo" href="index.html" rel="home">
+                <div class="main_logo">
+                    <b>Project </b>
+                    <p>by</p>
+                    <b>third</b>
+                    <p>team</p>
+                </div>
+            </a>
+            <nav class="c-header_nav">
+                <ul class="c-header_nav_list">
+                    <li class="c-header_nav_item">
+                        <a class="c-header_nav_link" href="index.html">Technical</a>
+                    </li>
+                    <li class="c-header_nav_item -subnav">
+                        <span class="c-header_nav_link">Solutions</span>
+                        <div class="c-header_nav_subnav">
+                            <div class="c-header-nav_subnav_bg"></div>
+                            <ul class="c-header_nav_subnav_list">
+                                <li class="c-header_nav_subnav_item">
+                                    <a class="c-header_nav_subnav_link"
+                                        href="index.html">Personal</a>
+                                </li>
+                                <li class="c-header_nav_subnav_item">
+                                    <a class="c-header_nav_subnav_link"
+                                        href="index.html">Enterprise</a>
+                                </li>
+                                <li class="c-header_nav_subnav_item">
+                                    <a class="c-header_nav_subnav_link"
+                                        href="index.html">Education</a>
+                                </li>
+                                <li class="c-header_nav_subnav_item">
+                                    <a class="c-header_nav_subnav_link"
+                                        href="index.html">Government</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="c-header_nav_item">
+                        <a class="c-header_nav_link" href="index.html">About Us</a>
+                    </li>
+                    <li class="c-header_nav_item">
+                        <a class="c-header_nav_link" href="index.html">Blog</a>
+                    </li>
+                    <li class="c-header_nav_item">
+                        <a class="c-header_nav_link" href="index.html">Careers</a>
+                    </li>
+                </ul>
+
+                <button class="c-header_nav_burger" data-header="button" aria-label="Menu" type="button">
+                    <span class="c-header_nav_burger_icon">
+                        <span class="c-header_nav_burger_icon_line"></span>
+                        <span class="c-header_nav_burger_icon_line"></span>
+                        <span class="c-header_nav_burger_icon_line"></span>
+                    </span>
+                    <svg class="c-header_nav_burger_close" role="img" id="close" viewBox="0 0 29 29">
+                            <g fill="none" fill-rule="evenodd" stroke-linecap="square" transform="translate(1 1)">
+                              <line x1=".253" x2="26.097" y1=".678" y2="26.522"></line>
+                              <line x1=".253" x2="26.097" y1="26.522" y2=".678"></line>
+                            </g>
+
+                    </svg>
+                </button>
+
+                <div class="c-header_nav_button">
+                    <button class="c-button -blue -block -medium" type="button" data-header="getInTouch"
+                        data-gtm="target"
+                        data-gtm-data='{"eventCategory":"Contact","eventAction":"Parlons nous","eventLabel":"contact}'>
+                        <span class="c-button_label">Let's Talk</span>
+                        <span class="c-button_icon -scale">
+                            <svg role="img" id="talk" viewBox="0 0 29 25">
+                                <path fill-rule="evenodd" d="M147.753866,19.5972781 C146.965726,19.5972781 146.327111,20.2504302 146.327111,21.055858 C146.327111,21.8612858 146.965726,22.5144379 147.753866,22.5144379 C148.542005,22.5144379 149.180621,21.8612858 149.180621,21.055858 C149.180621,20.2504302 148.542005,19.5972781 147.753866,19.5972781 M142.103917,19.5972781 C141.315777,19.5972781 140.677162,20.2504302 140.677162,21.055858 C140.677162,21.8612858 141.315777,22.5144379 142.103917,22.5144379 C142.891771,22.5144379 143.530671,21.8612858 143.530671,21.055858 C143.530671,20.2504302 142.891771,19.5972781 142.103917,19.5972781 M136.596358,19.5972781 C135.808789,19.5972781 135.169603,20.2504302 135.169603,21.055858 C135.169603,21.8612858 135.808789,22.5144379 136.596358,22.5144379 C137.384497,22.5144379 138.023112,21.8612858 138.023112,21.055858 C138.023112,20.2504302 137.384497,19.5972781 136.596358,19.5972781 M146.954883,28.9905325 L144.129908,28.9905325 L138.879165,32.9870414 L138.879165,28.9905325 L137.795117,28.9905325 C133.314821,28.9905325 129.69115,25.2857396 129.69115,20.7057988 C129.69115,16.125858 133.314821,12.4210651 137.795117,12.4210651 L146.954883,12.4210651 C151.434608,12.4210651 155.05885,16.125858 155.05885,20.7057988 C155.05885,25.2857396 151.434608,28.9905325 146.954883,28.9905325 M146.954883,11.05 L137.795117,11.05 C132.601444,11.05 128.35,15.3673964 128.35,20.6766272 C128.35,25.9275148 132.458769,30.186568 137.538301,30.332426 L137.538301,35.7 L144.586185,30.3615976 L146.954883,30.3615976 C152.176806,30.3615976 156.4,26.0442012 156.4,20.7057988 C156.4,15.3673964 152.147985,11.05 146.954883,11.05" transform="translate(-128 -11)"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+
+            </nav>
+        </header>
+        <nav class="c-nav" data-module-nav>
+            <div class="c-nav_bg" data-nav="close"></div>
+            <div class="c-nav_main">
+                <div class="c-nav_container o-container">
+                    <div class="o-layout -gutterTiny">
+                        <div class="o-layout_item u-4/10@from-small">
+                            <ul class="c-nav_top">
+                                <li class="c-nav_item">
+                                    <a class="c-nav_link c-heading -h5" href="index.html">Technical</a>
+                                </li>
+                                
+                                <li class="c-nav_item">
+                                    <a class="c-nav_link c-heading -h5" href="index.html">About Us</a>
+                                </li>
+                                <li class="c-nav_item">
+                                    <a class="c-nav_link c-heading -h5" href="index.html">Blog</a>
+                                </li>
+                                <li class="c-nav_item">
+                                    <a class="c-nav_link c-heading -h5" href="index.html">Careers</a>
+                                </li>
+                                <li class="c-nav_item -subnav">
+                                    <span class="c-nav_link c-heading -h5">Solutions</span>
+                                    <ul class="c-nav_subnav">
+                                        <li class="c-nav_subnav_item">
+                                            <a class="c-nav_link -small"
+                                                href="index.html">Personal</a>
+                                        </li>
+                                        <li class="c-nav_subnav_item">
+                                            <a class="c-nav_link -small"
+                                                href="index.html">Enterprise</a>
+                                        </li>
+                                        <li class="c-nav_subnav_item">
+                                            <a class="c-nav_link -small"
+                                                href="index.html">Education</a>
+                                        </li>
+                                        <li class="c-nav_subnav_item">
+                                            <a class="c-nav_link -small"
+                                                href="index.html">Government</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="o-layout_item u-4/10@from-small">
+                            <ul>
+                                <li>
+                                    <a class="c-nav_link -large c-heading -h5" href="index.html">
+                                        Careers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="c-nav_link -large c-heading -h5"
+                                        href="index.html" rel="noopener"
+                                        >
+                                        Online Catalog
+                                        <svg role="img" id="external" viewBox="0 0 14 14">
+                                            <path fill-rule="evenodd" d="M411.525236,60.3506832 L407.232178,60.3506832 C407.207128,60.3497723 407.181623,60.3497723 407.15794,60.3506832 C406.758511,60.3707228 406.449262,60.7113969 406.468846,61.1103681 C406.487975,61.5097948 406.82865,61.8208648 407.220336,61.7999143 L409.775403,61.7999143 L403.892829,67.6820072 C403.609995,67.9648395 403.609995,68.425296 403.892829,68.7081284 C404.029464,68.8447624 404.211643,68.9203665 404.405664,68.9203665 C404.59923,68.9203665 404.781409,68.8447624 404.918499,68.7081284 L410.801528,62.82558 L410.801528,65.3769919 C410.795607,65.7764186 411.115788,66.1061619 411.515672,66.1116273 C411.714703,66.1116273 411.891872,66.041944 412.030784,65.9066763 C412.16924,65.7718641 412.247122,65.5905964 412.249855,65.38018 L412.249855,61.0752987 C412.249855,60.675872 411.924664,60.3506832 411.525236,60.3506832 L411.525236,60.3506832 Z M411.535711,68.084622 C411.339869,68.0828002 411.159511,68.1547608 411.020599,68.289573 C410.881687,68.4248406 410.803806,68.6056529 410.801528,68.8160692 L410.801528,71.6512243 L400.948809,71.6512243 L400.948809,61.7999143 L403.781244,61.7999143 C403.97982,61.8076569 404.1579,61.7297755 404.296356,61.5945078 C404.435268,61.4596957 404.51315,61.2788834 404.515883,61.0853185 C404.521348,60.6858919 404.200712,60.3561485 403.784432,60.3506832 L400.236032,60.3506832 C400.211438,60.3497723 400.186388,60.3497723 400.160883,60.3506832 L400.149042,60.3520495 C399.77694,60.3907625 399.49775,60.7022879 399.500014,61.0752987 L399.500014,72.3753845 C399.500014,72.7748111 399.824762,73.1 400.224191,73.1 L411.525236,73.1 C411.924664,73.1 412.249929,72.7748111 412.249929,72.3753845 L412.249929,68.8192574 C412.252587,68.6256925 412.180171,68.4430585 412.044903,68.3041472 C411.91009,68.165236 411.729732,68.0873547 411.535711,68.084622 L411.535711,68.084622 Z" transform="translate(-399 -59.45)"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="c-nav_link -large c-heading -h5"
+                                        href="index.html" rel="noopener">
+                                        My Account
+                                        <svg role="img" id="external" viewBox="0 0 14 14">
+                                            <path fill-rule="evenodd" d="M411.525236,60.3506832 L407.232178,60.3506832 C407.207128,60.3497723 407.181623,60.3497723 407.15794,60.3506832 C406.758511,60.3707228 406.449262,60.7113969 406.468846,61.1103681 C406.487975,61.5097948 406.82865,61.8208648 407.220336,61.7999143 L409.775403,61.7999143 L403.892829,67.6820072 C403.609995,67.9648395 403.609995,68.425296 403.892829,68.7081284 C404.029464,68.8447624 404.211643,68.9203665 404.405664,68.9203665 C404.59923,68.9203665 404.781409,68.8447624 404.918499,68.7081284 L410.801528,62.82558 L410.801528,65.3769919 C410.795607,65.7764186 411.115788,66.1061619 411.515672,66.1116273 C411.714703,66.1116273 411.891872,66.041944 412.030784,65.9066763 C412.16924,65.7718641 412.247122,65.5905964 412.249855,65.38018 L412.249855,61.0752987 C412.249855,60.675872 411.924664,60.3506832 411.525236,60.3506832 L411.525236,60.3506832 Z M411.535711,68.084622 C411.339869,68.0828002 411.159511,68.1547608 411.020599,68.289573 C410.881687,68.4248406 410.803806,68.6056529 410.801528,68.8160692 L410.801528,71.6512243 L400.948809,71.6512243 L400.948809,61.7999143 L403.781244,61.7999143 C403.97982,61.8076569 404.1579,61.7297755 404.296356,61.5945078 C404.435268,61.4596957 404.51315,61.2788834 404.515883,61.0853185 C404.521348,60.6858919 404.200712,60.3561485 403.784432,60.3506832 L400.236032,60.3506832 C400.211438,60.3497723 400.186388,60.3497723 400.160883,60.3506832 L400.149042,60.3520495 C399.77694,60.3907625 399.49775,60.7022879 399.500014,61.0752987 L399.500014,72.3753845 C399.500014,72.7748111 399.824762,73.1 400.224191,73.1 L411.525236,73.1 C411.924664,73.1 412.249929,72.7748111 412.249929,72.3753845 L412.249929,68.8192574 C412.252587,68.6256925 412.180171,68.4430585 412.044903,68.3041472 C411.91009,68.165236 411.729732,68.0873547 411.535711,68.084622 L411.535711,68.084622 Z" transform="translate(-399 -59.45)"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="c-nav_link -large c-heading -h5" href="index.html">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="o-layout_item u-4/10@from-small">
+                            <div class="c-nav_info">
+                                <p>
+                                    Developer <br />
+                                    <a href="https://t.me/Mr_Rahmat">Vladimir Shelkovnikov</a>
+                                </p>
+                            </div>
+                            <div class="c-nav_info">
+                                <p>
+                                    Top Manager <br />
+                                    <a href="https://t.me/Guzelsafiullina1">Guzel Safiullina</a>
+                                </p>
+                            </div>
+                            <div class="c-nav_info">
+                                <p>
+                                    Manager <br />
+                                    <a href="https://t.me/Eponeshnikov">Alexander Eponeshnikov</a>
+                                </p>
+                            </div>
+                            <div class="c-nav_info">
+                                <p>
+                                    Tech <br />
+                                    <a href="https://t.me/MuLlaLla">Rinat</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="o-layout_item u-4/10@from-small u-none@to-small"></div>
+                        <div class="o-layout_item u-4/10@from-small">
+                            <div class="c-social || c-nav_social">
+                                <a class="c-social_link -blue || c-nav_social_link"
+                                    href="https://www.linkedin.com" rel="nooopener"
+                                    target="_blank" aria-label="LinkedIn">
+                                    <svg role="presentation" id="social-linkedin" viewBox="0 0 13 13">
+                                        <path d="M3,2A1.24,1.24,0,1,1,1.75.75,1.25,1.25,0,0,1,3,2ZM3,4.25H.5v8H3Zm4,0H4.51v8H7V8.05c0-2.33,3-2.53,3,0v4.2H12.5V7.18C12.5,3.24,8,3.39,7,5.33Z"></path>
+                                    </svg>
+                                </a>
+                                <a class="c-social_link -blue || c-nav_social_link"
+                                    href="https://facebook.com/" rel="nooopener" target="_blank"
+                                    aria-label="Facebook">
+                                    <svg role="presentation" id="social-facebook" viewBox="0 0 24 24">
+                                        <path id="facebook-1" d="M9,8H6v4H9V24h5V12h3.64L18,8H14V6.33c0-1,.19-1.33,1.12-1.33H18V0H14.19C10.6,0,9,1.58,9,4.62Z"></path>
+                                    </svg>
+                                </a>
+                                <a class="c-social_link -blue || c-nav_social_link"
+                                    href="https://www.youtube.com" rel="nooopener"
+                                    target="_blank" aria-label="YouTube">
+                                    <svg role="presentation" id="social-youtube" viewBox="0 0 65 65">
+                                        <path d="M54,10H11A11,11,0,0,0,0,21V44A11,11,0,0,0,11,55H54A11,11,0,0,0,65,44V21A11,11,0,0,0,54,10ZM45.7,33.8l-19.5,10a1.49,1.49,0,0,1-2-.6,1.45,1.45,0,0,1-.2-.7v-20A1.54,1.54,0,0,1,25.5,21a1.85,1.85,0,0,1,.7.2l19.5,10a1.63,1.63,0,0,1,.7,2A1.34,1.34,0,0,1,45.7,33.8Z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="o-layout_item u-4/10@from-small">
+                            <a class="c-nav_link -small" href="index.html">Terms &#038; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-nav_icon">
+                    <svg role="img" id="shape-diagonal" viewBox="0 0 129 185">
+                        
+                            <path fill-rule="evenodd" d="M106.19127,86.55759 C108.50247,84.24459 112.25007,84.24459 114.56307,86.55759 L114.56307,86.55759 L127.07667,99.07119 C129.38787,101.38239 129.38787,105.13179 127.07667,107.44299 L127.07667,107.44299 L51.90327,182.61639 C49.59207,184.92759 45.84447,184.92759 43.53147,182.61639 L43.53147,182.61639 L31.01787,170.10279 C28.70487,167.78979 28.70487,164.04219 31.01787,161.72919 L31.01787,161.72919 Z M72.79047,72.28665 L85.30407,84.80025 C87.61707,87.11325 87.61707,90.86085 85.30407,93.17385 L51.90327,126.57285 C49.59207,128.88585 45.84447,128.88585 43.53147,126.57285 L31.01787,114.05925 C28.70667,111.74625 28.70667,107.99865 31.01787,105.68745 L64.41867,72.28665 C66.72987,69.97545 70.47927,69.97545 72.79047,72.28665 Z M76.90815,1.73475 C79.21935,-0.57825 82.96695,-0.57825 85.27995,1.73475 L85.27995,1.73475 L97.79355,14.24835 C100.10475,16.55955 100.10475,20.30895 97.79355,22.62015 L97.79355,22.62015 L22.62015,97.79355 C20.30895,100.10475 16.56135,100.10475 14.24835,97.79355 L14.24835,97.79355 L1.73475,85.27995 C-0.57825,82.96695 -0.57825,79.21935 1.73475,76.90635 L1.73475,76.90635 Z"></path>
+                          
+                    </svg>
+                </div>
+
+                <div class="c-nav_contact" data-nav="getInTouch">
+                    <div class="c-nav_contact_wrap">
+                        <button class="c-nav_contact_button c-button -blue -full" type="button">
+                            <span></span>
+                            <span class="c-nav_contact_icon">
+                                <svg role="img" id="talk" viewBox="0 0 29 25"> 
+                                    
+                                        <path fill-rule="evenodd" d="M147.753866,19.5972781 C146.965726,19.5972781 146.327111,20.2504302 146.327111,21.055858 C146.327111,21.8612858 146.965726,22.5144379 147.753866,22.5144379 C148.542005,22.5144379 149.180621,21.8612858 149.180621,21.055858 C149.180621,20.2504302 148.542005,19.5972781 147.753866,19.5972781 M142.103917,19.5972781 C141.315777,19.5972781 140.677162,20.2504302 140.677162,21.055858 C140.677162,21.8612858 141.315777,22.5144379 142.103917,22.5144379 C142.891771,22.5144379 143.530671,21.8612858 143.530671,21.055858 C143.530671,20.2504302 142.891771,19.5972781 142.103917,19.5972781 M136.596358,19.5972781 C135.808789,19.5972781 135.169603,20.2504302 135.169603,21.055858 C135.169603,21.8612858 135.808789,22.5144379 136.596358,22.5144379 C137.384497,22.5144379 138.023112,21.8612858 138.023112,21.055858 C138.023112,20.2504302 137.384497,19.5972781 136.596358,19.5972781 M146.954883,28.9905325 L144.129908,28.9905325 L138.879165,32.9870414 L138.879165,28.9905325 L137.795117,28.9905325 C133.314821,28.9905325 129.69115,25.2857396 129.69115,20.7057988 C129.69115,16.125858 133.314821,12.4210651 137.795117,12.4210651 L146.954883,12.4210651 C151.434608,12.4210651 155.05885,16.125858 155.05885,20.7057988 C155.05885,25.2857396 151.434608,28.9905325 146.954883,28.9905325 M146.954883,11.05 L137.795117,11.05 C132.601444,11.05 128.35,15.3673964 128.35,20.6766272 C128.35,25.9275148 132.458769,30.186568 137.538301,30.332426 L137.538301,35.7 L144.586185,30.3615976 L146.954883,30.3615976 C152.176806,30.3615976 156.4,26.0442012 156.4,20.7057988 C156.4,15.3673964 152.147985,11.05 146.954883,11.05" transform="translate(-128 -11)"></path>
+                                       
+                                </svg>
+                            </span>
+                            <span class="c-nav_contact_label">
+                                <span>Let's Talk</span>
+                                <span class="c-button_icon">
+                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                        
+                                            <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                          
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <aside class="c-getInTouch" data-module-get-in-touch>
+            <div class="c-getInTouch_bg" data-get-in-touch="close"></div>
+            <div class="c-getInTouch_container">
+                <header class="c-getInTouch_header">
+                    <button class="c-button -blue -large -icon -rounded -circleIcon -close" data-get-in-touch="close"
+                        aria-label="Close">
+                        <span class="c-button_icon">
+                            <svg role="img" id="close" viewBox="0 0 29 29">
+                                
+                                    <g fill="none" fill-rule="evenodd" stroke-linecap="square" transform="translate(1 1)">
+                                      <line x1=".253" x2="26.097" y1=".678" y2="26.522"></line>
+                                      <line x1=".253" x2="26.097" y1="26.522" y2=".678"></line>
+                                    </g>
+                            </svg>
+                        </span>
+                    </button>
+                </header>
+                <div class="c-getInTouch_main">
+                    <p class="c-getInTouch_subtitle">
+                        Let’s talk
+                        <svg role="img" id="talk" viewBox="0 0 29 25">
+                            
+                                <path fill-rule="evenodd" d="M147.753866,19.5972781 C146.965726,19.5972781 146.327111,20.2504302 146.327111,21.055858 C146.327111,21.8612858 146.965726,22.5144379 147.753866,22.5144379 C148.542005,22.5144379 149.180621,21.8612858 149.180621,21.055858 C149.180621,20.2504302 148.542005,19.5972781 147.753866,19.5972781 M142.103917,19.5972781 C141.315777,19.5972781 140.677162,20.2504302 140.677162,21.055858 C140.677162,21.8612858 141.315777,22.5144379 142.103917,22.5144379 C142.891771,22.5144379 143.530671,21.8612858 143.530671,21.055858 C143.530671,20.2504302 142.891771,19.5972781 142.103917,19.5972781 M136.596358,19.5972781 C135.808789,19.5972781 135.169603,20.2504302 135.169603,21.055858 C135.169603,21.8612858 135.808789,22.5144379 136.596358,22.5144379 C137.384497,22.5144379 138.023112,21.8612858 138.023112,21.055858 C138.023112,20.2504302 137.384497,19.5972781 136.596358,19.5972781 M146.954883,28.9905325 L144.129908,28.9905325 L138.879165,32.9870414 L138.879165,28.9905325 L137.795117,28.9905325 C133.314821,28.9905325 129.69115,25.2857396 129.69115,20.7057988 C129.69115,16.125858 133.314821,12.4210651 137.795117,12.4210651 L146.954883,12.4210651 C151.434608,12.4210651 155.05885,16.125858 155.05885,20.7057988 C155.05885,25.2857396 151.434608,28.9905325 146.954883,28.9905325 M146.954883,11.05 L137.795117,11.05 C132.601444,11.05 128.35,15.3673964 128.35,20.6766272 C128.35,25.9275148 132.458769,30.186568 137.538301,30.332426 L137.538301,35.7 L144.586185,30.3615976 L146.954883,30.3615976 C152.176806,30.3615976 156.4,26.0442012 156.4,20.7057988 C156.4,15.3673964 152.147985,11.05 146.954883,11.05" transform="translate(-128 -11)"></path>
+                              
+                        </svg>
+                    </p>
+                    <h3 class="c-heading c-getInTouch_title">
+                        Our application will save you from problems with accent!
+                    </h3>
+                    <a class="c-button -blue" href="index.html#form">
+                        <span class="c-button_label">Let’s talk</span>
+                        <span class="c-button_icon">
+                            <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                  
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+                <footer class="c-getInTouch_footer">
+                    <p class="c-getInTouch_footer_text">
+                        Developer  <br />
+                        <a href="https://t.me/Mr_Rahmat">Vladimir Shelkovnikov</a>
+                    </p>
+                    <p class="c-getInTouch_footer_text">
+                        Top Manager <br>
+                        <a href="https://t.me/Guzelsafiullina1">Guzel Safiullina</a>
+                    </p>
+                    <p class="c-getInTouch_footer_text">
+                        Manager <br>
+                        <a href="https://t.me/Eponeshnikov">Alexander Eponeshnikov</a>
+                    </p>
+                    <p class="c-getInTouch_footer_text">
+                        Tech <br>
+                        <a href="https://t.me/MuLlaLla">Rinat</a>
+                    </p>
+                </footer>
+            </div>
+        </aside>
+
+        <div data-module-scroll="main" data-module-tooltip>
+            <main>
+                <header class="c-headerPage" id="header-page" data-scroll-section>
+                    <div class="c-headerPage_image">
+                        <div class="c-headerPage_image_layer -shape" data-scroll data-scroll-speed="0.5"
+                            data-scroll-target="#header-page" data-scroll-position="top">
+                            <div class="c-headerPage_image_layer_wrap">
+                                <img src="assets/header-person_bg.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="c-headerPage_image_layer" data-scroll data-scroll-speed="-0.5"
+                            data-scroll-target="#header-page" data-scroll-position="top">
+                            <div class="c-headerPage_image_layer_wrap -main">
+                                <img data-module-home-image
+                                    data-home-image-choices='["assets/header-person_06.png","assets/header-person_05.png","assets/header-person_04.png","assets/header-person_03.png","assets/header-person_02.png","assets/header-person_01.png"]'
+                                    alt="" />
+                            </div>
+                        </div>
+                        <div class="c-headerPage_image_layer -shape" data-scroll data-scroll-speed="1.5"
+                            data-scroll-target="#header-page" data-scroll-position="top">
+                            <div class="c-headerPage_image_layer_wrap">
+                                <img src="assets/header-person_fg.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o-container">
+                        <div class="o-layout">
+                            <div class="o-layout_item u-3/5@from-medium"></div>
+                            <div class="o-layout_item u-2/5@from-medium">
+                                <div class="c-headerPage_content">
+                                    <div class="c-headerPage_content_wrap">
+                                        <h1 class="c-heading -h1 -noMargin">
+                                            <div class="u-overflow">
+                                                <div class="u-anim -translate">Erase</div>
+                                            </div>
+                                            <div class="u-overflow">
+                                                <div class="u-anim -translate -delay1">your</div>
+                                            </div>
+                                            <div class="u-overflow">
+                                                <div class="u-anim -translate -delay2">accent</div>
+                                            </div>
+                                            <!-- <div class="u-overflow">
+                                                <div class="u-anim -translate -delay3">experts</div>
+                                            </div> -->
+                                        </h1>
+                                        <div class="c-headerPage_buttons -offset">
+                                            <div class="o-layout -gutterTiny">
+                                                <div class="o-layout_item -auto u-anim -delay6">
+                                                    <a class="c-button -white" href="index.html"
+                                                        data-gtm="target"
+                                                        data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Solutions Humaines","eventLabel":"accueil_haut"}'>
+                                                        <span class="c-button_label">Technical</span>
+                                                        <span class="c-button_icon">
+                                                            <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                              
+                                                        </svg>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="o-layout_item -auto u-anim -delay7">
+                                                    <a class="c-button -white" href="index.html"
+                                                        data-gtm="target"
+                                                        data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Solutions TI","eventLabel":"accueil_haut"}'>
+                                                        <span class="c-button_label">Solutions</span>
+                                                        <span class="c-button_icon">
+                                                            <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                              
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="c-headerPage_content_text" data-scroll data-scroll-speed="0.3"
+                                            data-scroll-target="#header-page" data-scroll-position="top">
+                                            <p class="u-anim -delay4">
+                                                The project of the third team - Vladimir, Guzel, Alexander and Rinat.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <aside class="c-section -margin" data-scroll-section data-module-slider>
+                    <div class="o-container">
+                        <div class="o-layout">
+                            <div class="o-layout_item u-2/3@to-small u-3/5@from-small"></div>
+                            <div class="
+                    o-layout_item
+                    u-1/3@to-small u-1/5@from-small u-text-center
+                  ">
+                                <div class="c-shape -arrow -margin" data-scroll data-scroll-speed="1">
+                                    <svg role="img" id="shape-arrowdown" viewBox="0 0 147 201">
+                                            <path fill-rule="evenodd" d="M69.1862621 1.98707403L54.5125195 16.3272875C51.8014662 18.9767196 51.8010072 23.2726837 54.5120605 25.9216672L120.202439 90.118926C122.913492 92.768358 127.308914 92.768358 130.019967 90.118926L144.69371 75.778264C147.404763 73.1288319 147.404763 68.8333163 144.69371 66.1843328L79.0037907 1.98707403C76.2927374-.662358009 71.8973154-.662358009 69.1862621 1.98707403M50.827549 29.8396176L65.4470038 44.2270541C68.1480272 46.8852109 68.1484845 51.1953218 65.4474611 53.8530286L26.4268869 92.2547762C23.7258635 94.9124829 19.346703 94.9124829 16.6456796 92.2543262L2.02576754 77.8668896C-.675255847 75.2087329-.675255847 70.8990719 2.02576754 68.2409152L41.0463417 29.8396176C43.7473651 27.1814608 48.1265256 27.1814608 50.827549 29.8396176M83.0952494 64.26L62.5612047 64.26C58.7673837 64.26 55.692 67.3113472 55.692 71.0750659L55.692 193.461484C55.692 197.225653 58.7673837 200.277 62.5612047 200.277L83.0952494 200.277C86.8890704 200.277 89.964 197.225653 89.964 193.461484L89.964 71.0750659C89.964 67.3113472 86.8890704 64.26 83.0952494 64.26" transform="matrix(1 0 0 -1 0 201)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-overflow">
+                        <div class="o-container">
+                            <header class="c-section_header -margin">
+                                <div class="o-layout -bottom">
+                                    <div class="o-layout_item u-2/4@small u-2/5@from-medium">
+                                        <div class="c-section_category">
+                                            <p>Solutions</p>
+                                        </div>
+                                        <h3 class="c-heading -h3 -noMargin">
+                                            We advise more than 100 companies from all sectors
+                                        </h3>
+                                    </div>
+                                    <div class="
+                        o-layout_item
+                        u-2/4@small u-3/5@from-medium u-text-right
+                      ">
+                                        <div class="c-slider_buttons">
+                                            <button class="c-slider_button -prev" data-slider="prev">
+                                                <svg role="img" id="arrow-left" viewBox="0 0 17 17">
+                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M23.8,30.6 L36.4285714,30.6 M30.6,23.8 L37.4,30.6 L30.6,37.4" transform="matrix(-1 0 0 1 39.2 -22)"></path>   
+                                                </svg>
+                                            </button>
+                                            <button class="c-slider_button -next" data-slider="next">
+                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <div data-slider="container">
+                                <div class="c-slider o-layout swiper-wrapper">
+                                    <div class="
+                        c-slider_slide
+                        o-layout_item
+                        u-1/2@from-small
+                        swiper-slide
+                      ">
+                                        <article class="c-linkArticle">
+                                            <a class="c-linkArticle_link u-buttonHover"
+                                                href="index.html" data-gtm="target"
+                                                data-gtm-data='{"eventCategory":"Nav_Industrie","eventAction":"Personal"}'>
+                                                <span class="c-linkArticle_image">
+                                                    <div class="u-overflow">
+                                                        <div class="c-linkArticle_wrap o-ratio u-63:47">
+                                                            <img src="assets/1.jpg"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <span class="c-linkArticle_button">
+                                                        <span class="c-button -white">
+                                                            <span class="c-button_label">View Solution</span>
+                                                            <span class="c-button_icon">
+                                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="c-linkArticle_content -narrow">
+                                                    <h4 class="c-heading -h6">Personal</h4>
+                                                    <p>
+                                                        In order to remain competitive, we give you the opportunity to improve the quality of your negotiations. Our personal solution provides this advantage.
+                                                    </p>
+                                                </span>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    <div class="
+                        c-slider_slide
+                        o-layout_item
+                        u-1/2@from-small
+                        swiper-slide
+                      ">
+                                        <article class="c-linkArticle">
+                                            <a class="c-linkArticle_link u-buttonHover"
+                                                href="index.html" data-gtm="target"
+                                                data-gtm-data='{"eventCategory":"Nav_Industrie","eventAction":"Enterprise"}'>
+                                                <span class="c-linkArticle_image">
+                                                    <div class="u-overflow">
+                                                        <div class="c-linkArticle_wrap o-ratio u-63:47">
+                                                            <img src="assets/2.jpg"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <span class="c-linkArticle_button">
+                                                        <span class="c-button -white">
+                                                            <span class="c-button_label">View Solution</span>
+                                                            <span class="c-button_icon">
+                                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="c-linkArticle_content -narrow">
+                                                    <h4 class="c-heading -h6">Enterprise</h4>
+                                                    <p>
+                                                        The enterprises face great challenges. Our solutions make it possible to increase work efficiency
+                                                    </p>
+                                                </span>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    <div class="
+                        c-slider_slide
+                        o-layout_item
+                        u-1/2@from-small
+                        swiper-slide
+                      ">
+                                        <article class="c-linkArticle">
+                                            <a class="c-linkArticle_link u-buttonHover"
+                                                href="industries/education/index.html" data-gtm="target"
+                                                data-gtm-data='{"eventCategory":"Nav_Industrie","eventAction":"Education"}'>
+                                                <span class="c-linkArticle_image">
+                                                    <div class="u-overflow">
+                                                        <div class="c-linkArticle_wrap o-ratio u-63:47">
+                                                            <img src="assets/3.jpg"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <span class="c-linkArticle_button">
+                                                        <span class="c-button -white">
+                                                            <span class="c-button_label">View Solution</span>
+                                                            <span class="c-button_icon">
+                                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="c-linkArticle_content -narrow">
+                                                    <h4 class="c-heading -h6">Education</h4>
+                                                    <p>
+                                                        Accelerating digital transformation in the education sector poses new challenges with accents.
+                                                    </p>
+                                                </span>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    <div class="
+                        c-slider_slide
+                        o-layout_item
+                        u-1/2@from-small
+                        swiper-slide
+                      ">
+                                        <article class="c-linkArticle">
+                                            <a class="c-linkArticle_link u-buttonHover"
+                                                href="industries/government/index.html" data-gtm="target"
+                                                data-gtm-data='{"eventCategory":"Nav_Industrie","eventAction":"Government"}'>
+                                                <span class="c-linkArticle_image">
+                                                    <div class="u-overflow">
+                                                        <div class="c-linkArticle_wrap o-ratio u-63:47">
+                                                            <img src="assets/4.jpg"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <span class="c-linkArticle_button">
+                                                        <span class="c-button -white">
+                                                            <span class="c-button_label">View Solution</span>
+                                                            <span class="c-button_icon">
+                                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="c-linkArticle_content -narrow">
+                                                    <h4 class="c-heading -h6">Government</h4>
+                                                    <p>
+                                                        In the public sector, negotiations go through changes. Globalization requires an international solution to modern problems.
+                                                    </p>
+                                                </span>
+                                            </a>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <section class="c-section -margin" data-scroll-section>
+                    <div class="o-container">
+                        <div class="c-sectionHeading">
+                            <p>
+                                <span class="c-sectionHeading_line">
+                                    <span class="c-heading -huge u-inline" data-scroll data-scroll-speed="-0.5"
+                                        data-scroll-direction="horizontal">Understand</span>
+                                    <span class="c-shape -dash -yellow" data-scroll data-scroll-speed="1">
+                                        <svg role="img" id="shape-dash" viewBox="0 0 163 41">
+                                            <rect width="163" height="41" x="279" y="423" fill-rule="evenodd" rx="8" transform="translate(-279 -423)"></rect>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="c-sectionHeading_line">
+                                    <span class="c-sectionHeading_button" data-scroll data-scroll-speed="0.5">
+                                        <button class="c-button -white -large -rounded -circleIcon" type="button">
+                                            <span class="c-button_label">Video Presentation</span>
+                                            <span class="c-button_icon -circle -fill-white">
+                                                <svg role="img" id="play" viewBox="0 0 13 15">
+                                                    <polygon fill-rule="evenodd" points="50.5 43 58 56 43 56" transform="rotate(90 49.5 6.5)"></polygon>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </span>
+                                    <span class="c-heading -huge u-inline" data-scroll data-scroll-speed="0.5"
+                                        data-scroll-direction="horizontal">Speak</span>
+                                </span>
+                                <span class="c-sectionHeading_line">
+                                    <span class="o-layout">
+                                        <span class="o-layout_item u-2/10">
+                                            <span class="c-shape -plus" data-scroll data-scroll-speed="2">
+                                                <svg role="img" id="shape-plus" viewBox="0 0 120 120">
+                                                    <path d="M66.59 76A4.41 4.41 0 0171 80.41v35.18a4.41 4.41 0 01-4.41 4.41H53.41a4.41 4.41 0 01-4.41-4.41V80.41A4.41 4.41 0 0153.41 76h13.18zm-27-27A4.41 4.41 0 0144 53.41v13.18A4.41 4.41 0 0139.59 71H4.41A4.41 4.41 0 010 66.59V53.41A4.41 4.41 0 014.41 49zm76 0a4.41 4.41 0 014.41 4.41v13.18a4.41 4.41 0 01-4.41 4.41H80.41A4.41 4.41 0 0176 66.59V53.41A4.41 4.41 0 0180.41 49h35.18zm-49-49A4.41 4.41 0 0171 4.41v35.18A4.41 4.41 0 0166.59 44H53.41A4.41 4.41 0 0149 39.59V4.41A4.41 4.41 0 0153.41 0z"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="o-layout_item u-8/10">
+                                            <span class="c-heading -huge u-inline" data-scroll data-scroll-speed="1"
+                                                data-scroll-direction="horizontal">No accent</span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="o-layout">
+                            <div class="o-layout_item u-2/10@from-small"></div>
+                            <div class="o-layout_item u-2/3@to-small u-3/10@from-small">
+                                <h3 class="c-heading -h6">
+                                    IT made simple, at a human scale
+                                </h3>
+                                <p>
+                                    We support you in your desire to be better.
+                                </p>
+                                <div class="c-section_button">
+                                    <a class="c-button -white" href="index.html" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_A Propos","eventAction":"A propos"}'>
+                                        <span class="c-button_label">About us</span>
+                                        <span class="c-button_icon">
+                                            <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="o-layout_item u-3/10 u-none@to-small"></div>
+                            <div class="o-layout_item u-1/3@to-small u-2/10@from-small">
+                                <div class="c-shape -years" data-scroll data-scroll-speed="1.5">
+                                    <svg role="img" id="30years_en" viewBox="0 0 430 430">
+                                            <g fill="none">
+                                              <path fill="#0045DE" d="M37,88.85 L88.85,37 C96.35,29.5 108.51,29.5 116.01,37 L392.67,313.66 C400.17,321.16 400.17,333.33 392.67,340.83 L340.82,392.68 C333.32,400.18 321.16,400.18 313.66,392.68 L37,116.01 C29.5,108.51 29.5,96.35 37,88.85"></path>
+                                              <path fill="#2BFBD1" d="M178.17,0 L251.49,0 C262.1,0 270.7,8.6 270.7,19.2 L270.7,195.62 C270.7,206.23 262.1,214.83 251.49,214.83 L178.17,214.83 C167.56,214.83 158.97,206.23 158.97,195.62 L158.97,19.2 C158.97,8.6 167.56,0 178.17,0"></path>
+                                              <path fill="#000" d="M88.85,392.67 L37,340.83 C29.5,333.33 29.5,321.17 37,313.67 L313.66,37 C321.16,29.5 333.33,29.5 340.83,37 L392.68,88.85 C400.18,96.35 400.18,108.51 392.68,116.01 L116.01,392.67 C108.51,400.17 96.35,400.17 88.85,392.67"></path>
+                                              <path fill="#000" d="M0,251.5 L0,178.18 C0,167.57 8.6,158.97 19.2,158.97 L410.45,158.97 C421.06,158.97 429.66,167.57 429.66,178.18 L429.66,251.5 C429.66,262.11 421.06,270.700009 410.45,270.700009 L19.2,270.700009 C8.6,270.71 0,262.11 0,251.5"></path>
+                                              <path fill="#000" d="M178.17,214.84 L251.49,214.84 C262.1,214.84 270.7,223.44 270.7,234.04 L270.7,410.46 C270.7,421.07 262.1,429.67 251.49,429.67 L178.17,429.67 C167.56,429.67 158.97,421.07 158.97,410.46 L158.97,234.04 C158.97,223.43 167.56,214.84 178.17,214.84"></path>
+                                            </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="c-section -margin" id="c-jumbotron-it-solutions" data-scroll-section>
+                    <header class="c-section_header -black -offset">
+                        <div class="o-container">
+                            <div class="c-section_bg -half">
+                                <div class="c-section_bg_img"
+                                    data-load-style="background-image: url('assets/solutions-ti_bg.jpg');"
+                                    data-scroll data-scroll-speed="-1.5" data-target="#c-jumbotron-it-solutions"></div>
+                            </div>
+                            <div class="o-layout -gutterLarge">
+                                <div class="o-layout_item u-1/2@from-small">
+                                    <div class="c-section_wrap -padding">
+                                        <h2 class="c-heading -h1">
+                                            Our
+                                            <span class="c-shape -square -yellow" data-scroll
+                                                data-scroll-speed="0.5"><svg role="img">
+                                                    
+                                                </svg></span>
+                                            technologies
+                                        </h2>
+                                        <a class="c-button -white" href="index.html" data-gtm="target"
+                                            data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Solutions TI","eventLabel":"accueil_bas"}'>
+                                            <span class="c-button_label">Technologies</span>
+                                            <span class="c-button_icon">
+                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="o-container">
+                        <div class="c-accordion" data-module-accordion>
+                            <span>Our technologies</span>
+                            <div class="c-accordion_wrap">
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Expand","eventLabel":"Digital Transformation"}'>
+                                        <div class="c-heading -h6 -noMargin">
+                                            Technology 1
+                                        </div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi unde provident voluptates odio dignissimos et, architecto sit modi omnis illo explicabo ipsa molestiae, laborum quasi delectus libero eveniet facilis!
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Voir le service","eventLabel":"Digital Transformation"}'>
+                                                                <span class="c-button_label">View Service</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/s1.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Expand","eventLabel":"Virtualization"}'>
+                                        <div class="c-heading -h6 -noMargin">Technology 2</div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, vero ad. Dicta, cum.
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Voir le service","eventLabel":"Virtualization"}'>
+                                                                <span class="c-button_label">View Service</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/s2.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Expand","eventLabel":"Structured Cabling"}'>
+                                        <div class="c-heading -h6 -noMargin">
+                                            Technology 3
+                                        </div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime reiciendis perspiciatis, quae possimus nesciunt asperiores pariatur, aliquid quisquam quibusdam beatae iusto at. Consectetur, corporis quo! Mollitia, laudantium eaque!
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Voir le service","eventLabel":"Structured Cabling"}'>
+                                                                <span class="c-button_label">View Service</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/s3.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Expand","eventLabel":"Cloud Infrastructure"}'>
+                                        <div class="c-heading -h6 -noMargin">
+                                            Technology 4
+                                        </div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vitae optio distinctio ad fugit ipsum tempore tempora dolores similique, dolor temporibus officia totam.
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Voir le service","eventLabel":"Cloud Infrastructure"}'>
+                                                                <span class="c-button_label">View Service</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/s4.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Expand","eventLabel":"Converged and Hyperconverged (HCI) Infrastructure"}'>
+                                        <div class="c-heading -h6 -noMargin">
+                                            Technology 5
+                                        </div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam debitis quae itaque?
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions TI","eventAction":"Voir le service","eventLabel":"Converged and Hyperconverged (HCI) Infrastructure"}'>
+                                                                <span class="c-button_label">View Service</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/s5.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <aside class="c-section -margin" id="c-jumbotron-human-solutions" data-scroll-section>
+                    <header class="c-section_header -black -offset">
+                        <div class="o-container">
+                            <div class="c-section_bg -half">
+                                <div class="c-section_bg_img"
+                                    data-load-style="background-image: url('assets/solutions-human_bg.jpg');"
+                                    data-scroll data-scroll-speed="-1.5" data-target="#c-jumbotron-human-solutions">
+                                </div>
+                            </div>
+                            <div class="o-layout -gutterLarge">
+                                <div class="o-layout_item u-1/2@from-small">
+                                    <div class="c-section_wrap -padding">
+                                        <h2 class="c-heading -h1">
+                                            Our
+                                            <span class="c-shape -plusSmall -purple" data-scroll
+                                                data-scroll-speed="1"><svg role="img">
+                                                    
+                                                </svg></span>
+                                            Solutions
+                                        </h2>
+                                        <a class="c-button -white" href="index.html"
+                                            data-gtm="target"
+                                            data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Solutions Humaines","eventLabel":"accueil_bas"}'>
+                                            <span class="c-button_label">Solutions</span>
+                                            <span class="c-button_icon">
+                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="o-container">
+                        <div class="c-accordion" data-module-accordion>
+                            <span>Our Solutions</span>
+                            <div class="c-accordion_wrap">
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Expand","eventLabel":"Talent Acquisition Service"}'>
+                                        <div class="c-heading -h6 -noMargin">
+                                            Solution 1
+                                        </div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quasi ex totam labore quaerat commodi rerum sit tempora amet laudantium, aut eum veniam quos velit.
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Voir le service","eventLabel":"Talent Acquisition Service"}'>
+                                                                <span class="c-button_label">View Solution</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/ss1.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Expand","eventLabel":"Spending wisely"}'>
+                                        <div class="c-heading -h6 -noMargin">Solution 2</div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio molestias facilis, soluta doloremque earum veniam eaque!
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Voir le service","eventLabel":"Spending wisely"}'>
+                                                                <span class="c-button_label">View Solution</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/ss2.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Expand","eventLabel":"IT Governance"}'>
+                                        <div class="c-heading -h6 -noMargin">Solution 3</div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem adipisicing elit. Sunt impedit ea sequi quia voluptates facere accusamus neque?
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Voir le service","eventLabel":"IT Governance"}'>
+                                                                <span class="c-button_label">View Solution</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Expand","eventLabel":"IT Governance"}'>
+                                        <div class="c-heading -h6 -noMargin">Solution 4</div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt exercitationem temporibus impedit ea sequi quia voluptates facere accusamus neque?
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Voir le service","eventLabel":"IT Governance"}'>
+                                                                <span class="c-button_label">View Solution</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/ss3.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="c-accordion_item" data-accordion="section">
+                                    <header class="c-accordion_header" data-accordion="header" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Expand","eventLabel":"Professional &#038; Technical Services"}'>
+                                        <div class="c-heading -h6 -noMargin">
+                                            Solution 5
+                                        </div>
+                                        <div class="c-accordion_plus"></div>
+                                    </header>
+                                    <div class="c-accordion_main">
+                                        <div class="c-accordion_main_wrap">
+                                            <div class="o-layout -bottom -gutter">
+                                                <div class="o-layout_item u-2/5@from-small">
+                                                    <div class="c-accordion_content">
+                                                        <p>
+                                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit at inventore libero itaque recusandae, rerum aut quidem quam. Distinctio.
+                                                        </p>
+                                                        <div class="c-section_button">
+                                                            <a class="c-button -blue"
+                                                                href="index.html"
+                                                                data-gtm="target"
+                                                                data-gtm-data='{"eventCategory":"Nav_Solutions Humaines","eventAction":"Voir le service","eventLabel":"Professional &#038; Technical Services"}'>
+                                                                <span class="c-button_label">View Solution</span>
+                                                                <span class="c-button_icon">
+                                                                    <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                                        <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="o-layout_item u-3/5@from-small">
+                                                    <div class="c-accordion_image o-ratio u-19:12">
+                                                        <img src="assets/ss4.jpg"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <aside class="c-section -margin" data-scroll-section data-module-slider>
+                    <div class="o-container">
+                        <div class="o-layout">
+                            <div class="o-layout_item u-2/3@to-small u-3/5@from-small"></div>
+                            <div class="
+                    o-layout_item
+                    u-1/3@to-small u-1/5@from-small u-text-center
+                  ">
+                                <div class="c-shape -arrow -purple -margin" data-scroll data-scroll-speed="1">
+                                    <svg role="img" id="shape-arrowdown" viewBox="0 0 147 201">
+                                        <path fill-rule="evenodd" d="M69.1862621 1.98707403L54.5125195 16.3272875C51.8014662 18.9767196 51.8010072 23.2726837 54.5120605 25.9216672L120.202439 90.118926C122.913492 92.768358 127.308914 92.768358 130.019967 90.118926L144.69371 75.778264C147.404763 73.1288319 147.404763 68.8333163 144.69371 66.1843328L79.0037907 1.98707403C76.2927374-.662358009 71.8973154-.662358009 69.1862621 1.98707403M50.827549 29.8396176L65.4470038 44.2270541C68.1480272 46.8852109 68.1484845 51.1953218 65.4474611 53.8530286L26.4268869 92.2547762C23.7258635 94.9124829 19.346703 94.9124829 16.6456796 92.2543262L2.02576754 77.8668896C-.675255847 75.2087329-.675255847 70.8990719 2.02576754 68.2409152L41.0463417 29.8396176C43.7473651 27.1814608 48.1265256 27.1814608 50.827549 29.8396176M83.0952494 64.26L62.5612047 64.26C58.7673837 64.26 55.692 67.3113472 55.692 71.0750659L55.692 193.461484C55.692 197.225653 58.7673837 200.277 62.5612047 200.277L83.0952494 200.277C86.8890704 200.277 89.964 197.225653 89.964 193.461484L89.964 71.0750659C89.964 67.3113472 86.8890704 64.26 83.0952494 64.26" transform="matrix(1 0 0 -1 0 201)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <aside id="c-callout-career" class="c-section -blue -padding" data-scroll-section>
+                    <div class="o-container">
+                        <div class="o-layout -middle">
+                            <div class="o-layout_item u-1/2@from-small">
+                                <div class="c-section_image">
+                                    <div class="o-ratio u-57:53">
+                                        <div class="o-ratio_content -parallax" data-scroll data-scroll-speed="-1"
+                                            data-scroll-target="#c-callout-career">
+                                            <img src="assets/job.jpg"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o-layout_item u-1/10@from-small"></div>
+                            <div class="o-layout_item u-3/10@from-small">
+                                <div class="c-section_wrap">
+                                    <div class="c-section_category">
+                                        <p>Career</p>
+                                    </div>
+                                    <h3 class="c-heading -h3 -margin">
+                                        Join the best team.
+                                    </h3>
+                                    <p>
+                                        Together we can change the world!
+                                    </p>
+                                    <div class="c-section_button">
+                                        <a class="c-button -white" href="index.html" data-gtm="target"
+                                            data-gtm-data='{"eventCategory":"Nav_Carrieres","eventAction":"Carrieres"}'>
+                                            <span class="c-button_label">Career</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+            </main>
+
+            <footer class="c-footer" data-scroll-section>
+                <div class="o-container" data-scroll data-scroll-repeat data-scroll-call="toggleVisibility, StickyNav">
+                    <div class="o-layout -flex -reverse@to-small">
+                        <div class="o-layout_item u-3/10@from-small">
+                            <div class="c-footer_newsletter">
+                                <p class="c-section_category">Newsletter</p>
+                                <label for="c-form-newsletter-footer-email">
+                                    <span class="c-heading -h4 u-block">Our insights to your inbox.</span>
+                                </label>
+                                <form id="c-form-newsletter-footer" class="c-footer_form"
+                                    action="https://aaa.st12.sne21.ru" method="POST" target="_blank"
+                                    accept-charset="utf-8" data-gtm="form"
+                                    data-gtm-data='{"eventCategory":"Lead","eventAction":"Infolettre","eventLabel":"Footer"}'>
+                                    <div class="c-form_inputWrap">
+                                        <label for="c-form-newsletter-footer-email" class="u-screen-reader-text">Email
+                                            address</label>
+                                        <input type="email" id="c-form-newsletter-footer-email" name="ci_email"
+                                            class="c-form_input" placeholder="Your email address" />
+                                        <div style="display: block; visibility: hidden; height: 1px">
+                                            <input style="display: none" type="text" name="ci_verification" />
+                                            <input type="hidden" name="ci_groups" value="50" />
+                                            <input type="hidden" name="ci_account"
+                                                value="d2b6905b-d634-465a-051f-d450e2b14785" />
+                                            <input type="hidden" name="ci_language" value="en_ca" />
+                                            <input type="hidden" name="ci_sent_url" value="" />
+                                            <input type="hidden" name="ci_error_url" value="" />
+                                            <input type="hidden" name="ci_confirm_url" value="" />
+                                        </div>
+                                        <button class="c-form_inputButton c-button -transparent -icon" type="submit"
+                                            aria-label="Send">
+                                            <span class="c-button_icon">
+                                                <svg role="img" id="arrow-right" viewBox="0 0 17 17">
+                                                    <path fill="none" stroke-linecap="round" stroke-width="2" d="M119.85,30.6 L132.478571,30.6 M126.65,23.8 L133.45,30.6 L126.65,37.4" transform="translate(-118 -22)"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="o-layout_item u-1/10@from-small"></div>
+                        <div class="o-layout_item u-6/10@from-small">
+                            <nav class="c-footer_nav">
+                                <ul class="c-footer_nav_list">
+                                    <li class="c-footer_nav_item">
+                                        <a class="c-footer_nav_link" href="index.html">Technical</a>
+                                    </li>
+                                    <li class="c-footer_nav_item">
+                                        <a class="c-footer_nav_link" href="index.html">Solutions</a>
+                                    </li>
+                                    <li class="c-footer_nav_item">
+                                        <a class="c-footer_nav_link" href="index.html">About Us</a>
+                                    </li>
+                                    <li class="c-footer_nav_item">
+                                        <a class="c-footer_nav_link" href="index.html">Careers</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="o-layout -gutterSmall">
+                                <div class="o-layout_item u-2/3@from-small">
+                                    <div class="c-footer_title">Other Links</div>
+                                    <a class="c-footer_link c-heading -h6 -noMargin"
+                                        href="index.html" rel="noopener">
+                                        Online Catalog
+                                        <svg role="img" id="external" viewBox="0 0 14 14">
+                                            <path fill-rule="evenodd" d="M411.525236,60.3506832 L407.232178,60.3506832 C407.207128,60.3497723 407.181623,60.3497723 407.15794,60.3506832 C406.758511,60.3707228 406.449262,60.7113969 406.468846,61.1103681 C406.487975,61.5097948 406.82865,61.8208648 407.220336,61.7999143 L409.775403,61.7999143 L403.892829,67.6820072 C403.609995,67.9648395 403.609995,68.425296 403.892829,68.7081284 C404.029464,68.8447624 404.211643,68.9203665 404.405664,68.9203665 C404.59923,68.9203665 404.781409,68.8447624 404.918499,68.7081284 L410.801528,62.82558 L410.801528,65.3769919 C410.795607,65.7764186 411.115788,66.1061619 411.515672,66.1116273 C411.714703,66.1116273 411.891872,66.041944 412.030784,65.9066763 C412.16924,65.7718641 412.247122,65.5905964 412.249855,65.38018 L412.249855,61.0752987 C412.249855,60.675872 411.924664,60.3506832 411.525236,60.3506832 L411.525236,60.3506832 Z M411.535711,68.084622 C411.339869,68.0828002 411.159511,68.1547608 411.020599,68.289573 C410.881687,68.4248406 410.803806,68.6056529 410.801528,68.8160692 L410.801528,71.6512243 L400.948809,71.6512243 L400.948809,61.7999143 L403.781244,61.7999143 C403.97982,61.8076569 404.1579,61.7297755 404.296356,61.5945078 C404.435268,61.4596957 404.51315,61.2788834 404.515883,61.0853185 C404.521348,60.6858919 404.200712,60.3561485 403.784432,60.3506832 L400.236032,60.3506832 C400.211438,60.3497723 400.186388,60.3497723 400.160883,60.3506832 L400.149042,60.3520495 C399.77694,60.3907625 399.49775,60.7022879 399.500014,61.0752987 L399.500014,72.3753845 C399.500014,72.7748111 399.824762,73.1 400.224191,73.1 L411.525236,73.1 C411.924664,73.1 412.249929,72.7748111 412.249929,72.3753845 L412.249929,68.8192574 C412.252587,68.6256925 412.180171,68.4430585 412.044903,68.3041472 C411.91009,68.165236 411.729732,68.0873547 411.535711,68.084622 L411.535711,68.084622 Z" transform="translate(-399 -59.45)"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="c-footer_link c-heading -h6 -noMargin"
+                                        href="index.html" rel="noopener"
+                                        target="_blank">
+                                        My Account
+                                        <svg role="img" id="external" viewBox="0 0 14 14">
+                                            <path fill-rule="evenodd" d="M411.525236,60.3506832 L407.232178,60.3506832 C407.207128,60.3497723 407.181623,60.3497723 407.15794,60.3506832 C406.758511,60.3707228 406.449262,60.7113969 406.468846,61.1103681 C406.487975,61.5097948 406.82865,61.8208648 407.220336,61.7999143 L409.775403,61.7999143 L403.892829,67.6820072 C403.609995,67.9648395 403.609995,68.425296 403.892829,68.7081284 C404.029464,68.8447624 404.211643,68.9203665 404.405664,68.9203665 C404.59923,68.9203665 404.781409,68.8447624 404.918499,68.7081284 L410.801528,62.82558 L410.801528,65.3769919 C410.795607,65.7764186 411.115788,66.1061619 411.515672,66.1116273 C411.714703,66.1116273 411.891872,66.041944 412.030784,65.9066763 C412.16924,65.7718641 412.247122,65.5905964 412.249855,65.38018 L412.249855,61.0752987 C412.249855,60.675872 411.924664,60.3506832 411.525236,60.3506832 L411.525236,60.3506832 Z M411.535711,68.084622 C411.339869,68.0828002 411.159511,68.1547608 411.020599,68.289573 C410.881687,68.4248406 410.803806,68.6056529 410.801528,68.8160692 L410.801528,71.6512243 L400.948809,71.6512243 L400.948809,61.7999143 L403.781244,61.7999143 C403.97982,61.8076569 404.1579,61.7297755 404.296356,61.5945078 C404.435268,61.4596957 404.51315,61.2788834 404.515883,61.0853185 C404.521348,60.6858919 404.200712,60.3561485 403.784432,60.3506832 L400.236032,60.3506832 C400.211438,60.3497723 400.186388,60.3497723 400.160883,60.3506832 L400.149042,60.3520495 C399.77694,60.3907625 399.49775,60.7022879 399.500014,61.0752987 L399.500014,72.3753845 C399.500014,72.7748111 399.824762,73.1 400.224191,73.1 L411.525236,73.1 C411.924664,73.1 412.249929,72.7748111 412.249929,72.3753845 L412.249929,68.8192574 C412.252587,68.6256925 412.180171,68.4430585 412.044903,68.3041472 C411.91009,68.165236 411.729732,68.0873547 411.535711,68.084622 L411.535711,68.084622 Z" transform="translate(-399 -59.45)"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="c-footer_link c-heading -h6 -noMargin" href="index.html">
+                                        Contact
+                                    </a>
+                                    <a class="c-footer_link c-heading -h6 -noMargin" href="index.html">
+                                        Terms &#038; Conditions
+                                    </a>
+                                </div>
+                                <div class="o-layout_item u-1/3@from-small">
+                                    <div class="c-footer_title">Solutions <sup>05</sup></div>
+                                    <a class="c-footer_link c-heading -h6 -noMargin"
+                                        href="index.html">Personal</a>
+                                    <a class="c-footer_link c-heading -h6 -noMargin"
+                                        href="index.html">Enterprise</a>
+                                    <a class="c-footer_link c-heading -h6 -noMargin"
+                                        href="index.html">Education</a>
+                                    <a class="c-footer_link c-heading -h6 -noMargin"
+                                        href="index.html">Government</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-footer_bottom">
+                        <div class="o-layout">
+                            <div class="o-layout_item u-3/10@from-small">
+                                <div class="c-footer_social c-social">
+                                    <a class="c-social_link -white -small"
+                                        href="https://www.linkedin.com/" rel="nooopener"
+                                        target="_blank" aria-label="LinkedIn" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Medias sociaux","eventAction":"Clic","eventLabel":"linkedin"}'>
+                                        <svg role="presentation" id="social-linkedin" viewBox="0 0 13 13">
+                                            <path d="M3,2A1.24,1.24,0,1,1,1.75.75,1.25,1.25,0,0,1,3,2ZM3,4.25H.5v8H3Zm4,0H4.51v8H7V8.05c0-2.33,3-2.53,3,0v4.2H12.5V7.18C12.5,3.24,8,3.39,7,5.33Z"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="c-social_link -white -small" href="https://facebook.com"
+                                        rel="nooopener" target="_blank" aria-label="Facebook" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Medias sociaux","eventAction":"Clic","eventLabel":"facebook"}'>
+                                        <svg role="presentation" id="social-facebook" viewBox="0 0 24 24">
+                                            <path id="facebook-1" d="M9,8H6v4H9V24h5V12h3.64L18,8H14V6.33c0-1,.19-1.33,1.12-1.33H18V0H14.19C10.6,0,9,1.58,9,4.62Z"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="c-social_link -white -small"
+                                        href="https://www.youtube.com" rel="nooopener"
+                                        target="_blank" aria-label="YouTube" data-gtm="target"
+                                        data-gtm-data='{"eventCategory":"Medias sociaux","eventAction":"Clic","eventLabel":"youtube"}'>
+                                        <svg role="presentation" id="social-youtube" viewBox="0 0 65 65">
+                                            <path d="M54,10H11A11,11,0,0,0,0,21V44A11,11,0,0,0,11,55H54A11,11,0,0,0,65,44V21A11,11,0,0,0,54,10ZM45.7,33.8l-19.5,10a1.49,1.49,0,0,1-2-.6,1.45,1.45,0,0,1-.2-.7v-20A1.54,1.54,0,0,1,25.5,21a1.85,1.85,0,0,1,.7.2l19.5,10a1.63,1.63,0,0,1,.7,2A1.34,1.34,0,0,1,45.7,33.8Z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="o-layout_item u-1/10@from-small"></div>
+                            <div class="o-layout_item u-6/10@from-small">
+                                <div class="o-layout -gutterSmall">
+                                    <div class="o-layout_item u-1/2@to-small u-1/3@from-small">
+                                        <p>
+                                            Developer <br />
+                                            <a class="o-link -white" href="https://t.me/Mr_Rahmat">Vladimir Shelkovnikov</a>
+                                        </p>
+                                    </div>
+                                    <div class="o-layout_item u-1/2@to-small u-1/3@from-small">
+                                        <p>
+                                            Top Manager <br />
+                                            <a class="o-link -white" href="https://t.me/Guzelsafiullina1">Guzel Safiullina</a>
+                                        </p>
+                                    </div>
+                                    <div class="o-layout_item u-1/2@to-small u-1/3@from-small">
+                                        <p>
+                                            Manager <br />
+                                            <a class="o-link -white" href="https://t.me/Eponeshnikov">Alexander Eponeshnikov</a>
+                                        </p>
+                                    </div>
+
+                                    <div class="o-layout_item u-1/2@to-small u-1/3@from-small">
+                                        <p>
+                                            Tech <br />
+                                            <a class="o-link -white" href="https://t.me/MuLlaLla">Rinat</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-footer_copy">
+                            <p>2021 © Third command</p>
+                            <p>
+                                Website by
+                                <a class="c-footer_copy_link" href="https://github.com/MrRahmat" target="_blank"
+                                    rel="nooopener">Mr.Rahmat</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="scripts/vendors.js%3Fver=202107141640" id="iti-theme-vendors-js" defer></script>
+    <script type="text/javascript" id="iti-theme-app-js-extra">
+        var itiData = {
+            ajax_url: "https:\/\/iti.ca\/wp-ajax.php",
+            theme_url: "https:\/\/iti.ca\/themes\/iti",
+            l10n: {
+                loading: "Loading\u2026",
+                errorTryAgain: "An error occurred. Please try again.",
+                errorTryLater: "An error occurred. Please try later.",
+                unknownError: "Something went wrong.",
+            },
+        };
+    </script>
+    <script src="scripts/app.js%3Fver=202107141640" id="iti-theme-app-js" defer></script>
+</body>
+
+</html>
