@@ -2150,13 +2150,13 @@ button.swiper-pagination-bullet {
 }
 @media (min-width: 700px) and (max-width: 1199px) {
   .c-headerPage_content_text {
-    right: -7.33333rem;
+    right: 2.33333rem;
   }
 }
 @media (min-width: 1000px) and (max-width: 1199px) {
   [lang="en"] .c-headerPage_content_text {
     width: 10.66667rem;
-    right: -11.33333rem;
+    right: 2.33333rem;
     bottom: 4.66667rem;
   }
 }
@@ -2166,16 +2166,16 @@ button.swiper-pagination-bullet {
   }
   [lang="en"] .c-headerPage_content_text {
     width: 13.33333rem;
-    right: -14.33333rem;
+    right: 1.33333rem;
     bottom: 5.33333rem;
   }
 }
 @media (min-width: 1600px) {
   .c-headerPage_content_text {
-    right: -10rem;
+    right: 0rem;
   }
   [lang="en"] .c-headerPage_content_text {
-    right: -16.66667rem;
+    right: -1rem;
   }
 }
 @media (max-width: 699px) {
@@ -2204,6 +2204,11 @@ button.swiper-pagination-bullet {
   height: 100vh;
   padding-top: 4.66667rem;
 }
+
+.voice_logo{
+  width: 200px;
+}
+
 @media (min-width: 1000px) {
   .c-headerLogo {
     min-height: 58.66667rem;
@@ -2914,17 +2919,17 @@ button.swiper-pagination-bullet {
 }
 @media (min-width: 500px) and (max-width: 699px) {
   .c-heading.-h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 @media (min-width: 700px) and (max-width: 999px) {
   .c-heading.-h1 {
-    font-size: 7.33333rem;
+    font-size: 5.33333rem;
   }
 }
 @media (min-width: 1000px) {
   .c-heading.-h1 {
-    font-size: 9.33333rem;
+    font-size: 7.33333rem;
   }
 }
 .c-heading.-h2 {
